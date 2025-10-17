@@ -3,8 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "biome check --write && next build --turbopack",
+		"dev": "next dev",
+		"build": "biome check --write && next build",
+		"build:github": "biome check --write && next build && echo. > out\\.nojekyll",
 		"export": "next export",
 		"start": "next start",
 		"lint": "biome check --write",
