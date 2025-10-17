@@ -1,45 +1,85 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #14110F;
-        --foreground: rgb(30, 30, 30);
-        --text: #F3F3F4;
-        --fadedText: #7E7F83;
-        --accent: #D9C5B2;
-        --correctedWord: #DCB46B;
-        --incorectWord: #D05851;
-        --hilightedText: #ffffff6a;
-    }
+	:root {
+		--background: #14110f;
+		--foreground: rgb(30, 30, 30);
+		--text: #f3f3f4;
+		--fadedText: #7e7f83;
+		--accent: #d9c5b2;
+		--correctedWord: #dcb46b;
+		--incorectWord: #d05851;
+		--hilightedText: #ffffff6a;
+	}
 }
 
 @media (prefers-color-scheme: light) {
-    :root {
-        --background: #FFFFFF;
-        --foreground: rgb(240, 240, 240);
-        --text: #1A1A1A;
-        --fadedText: #6B7280;
-        --accent: #8B5A3C;
-        --correctedWord: #B45309;
-        --incorectWord: #DC2626;
-        --hilightedText:#0000006a;
-    }
+	:root {
+		--background: #ffffff;
+		--foreground: rgb(240, 240, 240);
+		--text: #1a1a1a;
+		--fadedText: #6b7280;
+		--accent: #d9c5b2;
+		--correctedWord: #b45309;
+		--incorectWord: #dc2626;
+		--hilightedText: #0000006a;
+	}
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 8px 12px;
+	overflow-x: hidden;
+}
+
+/* Prevent space bar from scrolling */
+body:focus {
+	outline: none;
 }
 
 .cursor {
-
-    animation: blink-cursor 1s steps(2, start) infinite;
+	animation: blink-cursor 1s steps(2, start) infinite;
 }
 
-/* keyframes for blinking */
+p {
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	word-spacing: normal;
+}
+
+/* Character span drives layout; overlay is absolute and doesn't change wrapping */
+.char {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+}
+
+/* Base quote character that determines width/line breaks */
+.char .base {
+	display: inline-block;
+	line-height: 1;
+}
+
+/* Typed character overlay: centered, absolute, doesn't affect layout */
+.char .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+
 @keyframes blink-cursor {
-    to {
-        background-color: var(--hilightedText);
-    }
+	to {
+		background-color: var(--hilightedText);
+	}
 }
