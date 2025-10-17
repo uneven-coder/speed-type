@@ -1,27 +1,27 @@
 {
-  "workbench.colorCustomizations": {
-    "terminal.background": "#00000000",
-    "activityBar.background": "#531343",
-    "titleBar.activeBackground": "#741B5E",
-    "titleBar.activeForeground": "#FDF8FC"
-  },
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit",
-    "source.fixAll.biome": "explicit"
-  },
-  "biome.lspBin": "biome",
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.suggest.autoImports": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["class(?:Name)?\\s*[:=]\\s*['\"`]([^'\"`]*)['\"`]", "([^'\"`]*)"],
-    ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "(['\"`][^'\"`]*['\"`])"]
-  ]
+	"workbench.colorCustomizations": {
+		"terminal.background": "#00000000",
+		"activityBar.background": "#531343",
+		"titleBar.activeBackground": "#741B5E",
+		"titleBar.activeForeground": "#FDF8FC"
+	},
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+	"biome.lspBin": "biome",
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"typescript.suggest.autoImports": true,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.experimental.classRegex": [
+		["class(?:Name)?\\s*[:=]\\s*['\"`]([^'\"`]*)['\"`]", "([^'\"`]*)"],
+		["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "(['\"`][^'\"`]*['\"`])"]
+	]
 }

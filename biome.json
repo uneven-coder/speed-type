@@ -1,66 +1,61 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": true,
-    "includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
-    "excludes": ["node_modules", ".next", "out", "dist", "build", "*.config.js"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "tab",
-    "indentWidth": 2,
-    "lineWidth": 100
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUnusedImports": "error",
-        "noUnusedVariables": "error",
-        "useExhaustiveDependencies": "error"
-      },
-      "style": {
-        "noUnusedTemplateLiteral": "error",
-        "useConst": "error",
-        "useTemplate": "error"
-      },
-      "complexity": {
-        "noExcessiveCognitiveComplexity": "warn",
-        "noForEach": "warn"
-      },
-      "performance": {
-        "noAccumulatingSpread": "error"
-      },
-      "suspicious": {
-        "noUnknownAtRules": "off",
-        "noArrayIndexKey": "error",
-        "noConsoleLog": "warn",
-        "noDoubleEquals": "error"
-      },
-      "nursery": {
-        "useSortedClasses": "error"
-      }
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double",
-      "semicolons": "always",
-      "trailingComma": "all"
-    }
-  },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on",
-        "fixAll": "on"
-      }
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": true,
+		"includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 100
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"useExhaustiveDependencies": "error",
+				"noUndeclaredVariables": "error"
+			},
+			"style": {
+				"noUnusedTemplateLiteral": "error",
+				"useConst": "error",
+				"useTemplate": "error",
+				"useShorthandFunctionType": "error"
+			},
+			"complexity": {
+				"noExcessiveCognitiveComplexity": "warn",
+				"noForEach": "warn",
+				"useLiteralKeys": "error"
+			},
+			"performance": {
+				"noAccumulatingSpread": "error",
+				"noDelete": "error"
+			},
+			"suspicious": {
+				"noUnknownAtRules": "off",
+				"noArrayIndexKey": "error",
+				"noDoubleEquals": "error",
+				"noDebugger": "error",
+				"noEmptyInterface": "error"
+			},
+			"nursery": {
+				"useSortedClasses": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "always"
+		}
+	}
 }

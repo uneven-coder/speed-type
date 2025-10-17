@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,14 +7,26 @@ export const metadata: Metadata = {
 	description: "A speedtyping test app",
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1.0,
+	maximumScale: 1.0,
+	userScalable: false,
+	interactiveWidget: "resizes-visual",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
-			<body className="antialiased bg-[var(--background)]">{children}</body>
+		<html lang="en" suppressHydrationWarning className="overflow-hidden">
+			<head>
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+			</head>
+			<body>
+				<ThemeProvider attribute="data-theme" defaultTheme="dark" storageKey="speedtype_theme">
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	);
 }
