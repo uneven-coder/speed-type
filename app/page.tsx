@@ -375,7 +375,10 @@ function handleKeyDown(
     }
 }
 
-function useTypingInput(quote: string[], onReset: () => void): [string, string, TypingStats] {
+function useTypingInput(
+    quote: string[],
+    onReset: () => void,
+): [string, string, TypingStats, () => void] {
     const [typedText, setTypedText] = useState<string>("");
     const [lastTyped, setLastTyped] = useState<string>("");
 
@@ -385,6 +388,12 @@ function useTypingInput(quote: string[], onReset: () => void): [string, string, 
         (key: string): boolean => /^[A-Za-z.,;:'"!? -]+$/.test(key) || key === " ",
         [],
     );
+
+    const resetTypedText = useCallback((): void => {
+        // Clear typed text and last typed key
+        setTypedText("");
+        setLastTyped("");
+    }, []);
 
     useEffect(() => {
         if (typeof window === "undefined") return;
@@ -397,7 +406,7 @@ function useTypingInput(quote: string[], onReset: () => void): [string, string, 
         return () => window.removeEventListener("keydown", handleKeyPress);
     }, [typedText, quote, onReset, isValidChar]);
 
-    return [typedText, lastTyped, stats];
+    return [typedText, lastTyped, stats, resetTypedText];
 }
 
 function TypingArea({ functionalQuote, typedText, onAreaClick }: TypingAreaProps): JSX.Element {
@@ -531,8 +540,8 @@ function StatsDisplay({
                             onClick={isComplete ? onReset : undefined}
                             disabled={!isComplete}
                             className={`rounded-md border-2 border-[var(--accent)] bg-[var(--background)] px-2 py-1 font-semibold text-[var(--text)] text-sm leading-none md:rounded-lg md:border-4 md:px-4 md:py-2 md:text-base ${isComplete
-                                ? "cursor-pointer transition-colors hover:bg-[var(--accent)] hover:text-[var(--background)]"
-                                : "cursor-not-allowed opacity-50"
+                                    ? "cursor-pointer transition-colors hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                                    : "cursor-not-allowed opacity-50"
                                 }`}
                             aria-label="Reset quote"
                         >
@@ -567,7 +576,13 @@ export default function Home(): JSX.Element {
 
     const functionalQuote = useMemo(() => quote.join(" ").split(""), [quote]);
     const resetQuote = useCallback((): void => setQuote(getRandomQuote()), []);
-    const [typedText, lastTyped, stats] = useTypingInput(quote, resetQuote);
+    const [typedText, lastTyped, stats, resetTypedText] = useTypingInput(quote, resetQuote);
+
+    const handleCompleteReset = useCallback((): void => {
+        // Reset both quote and typed text state
+        resetQuote();
+        resetTypedText();
+    }, [resetQuote, resetTypedText]);
 
     useViewportHeight();
 
@@ -615,7 +630,7 @@ export default function Home(): JSX.Element {
                     wpm={stats.wpm}
                     fastestWpm={fastestWpm}
                     isComplete={stats.isComplete}
-                    onReset={resetQuote}
+                    onReset={handleCompleteReset}
                 />
             </footer>
         </div>
