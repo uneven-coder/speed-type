@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Speed Typing
 
-First, run the development server:
+This is a starter project to help me get into learning typescript.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+it has mobile and pc views, uses a custom display and input manager to create the quote view and get user input. this lets me style letters and peform checks on user input and block bad inputs like cheating and state management.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+made in next js exported to static html to work on github pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Figma Design
+<img width="1091" height="851" alt="image" src="https://github.com/user-attachments/assets/30c3232d-2c08-41d9-93a2-034d42577ef3" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## final output
+<img width="1916" height="948" alt="image" src="https://github.com/user-attachments/assets/c977b1b1-47fa-4a95-8fc5-99569d86fc92" />
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Light/dark mode toggle
+- Diffrent quotes
+- "works" on mobile
+- stores best wpm in local storage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Lessons Learned
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I have already used NextJS before but i mainly did the website and react size. So for this project i wanted to docus more on programing and logic.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Workign with Typescript was annoying, meaning its everything i expected, coming from c#, c++ and python the almost structure less format js/ts is, its very diffrent. It makes deciding how to structure functions dificult i often wonder where to start the function, and the even driven nature made me question how to start one off functions.
+
+I also found it hard to understant how to edit elements, but i soon found out and found it nice, i also finaly learnt css data/query selectors so that will help with other projects.
+
+## Roadmap
+
+- I would like to revisit this project and so i will leave out features so when i improve i can come back and remake. The following features will be for that version.
+
+- Add more typing modes:
+    - Gibberish
+    - Random Word's
+    - Custom
+    - Endless
+    - Code
+    - pc and mobile views are diffrent components
+
+
